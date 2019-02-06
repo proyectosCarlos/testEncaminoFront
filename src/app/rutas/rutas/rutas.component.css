@@ -1,0 +1,19 @@
+.divList{
+    overflow-y: scroll;
+    height: 500px;
+}
+
+.itemI{
+    padding-top: 2%;
+}
+
+.map {
+    height: 200px;
+    padding: 0;
+  }
+  
+
+  /* <div class="map"
+  leaflet
+  [leafletOptions]="options">
+  </div> */

@@ -1,0 +1,97 @@
+<div class="container divList">
+
+  <div class="row">
+    <div class="col-md-4 itemI" *ngFor="let ruta of this.servicio.rutas">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="../../../assets/yk2.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{ ruta.nombre }}</h5>
+              <p class="card-text">{{ ruta.descripcion }}</p>
+              <button type="button" class="btn btn-primary" (click)="open(content); seleccionarCliente(ruta);" >Ver
+                </button>
+            </div>
+          </div>
+    </div>      
+  </div>  
+  
+  </div>
+  
+  <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Ruta</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+          <div class="map"
+          leaflet
+          [leafletOptions]="options"
+          [leafletLayers]="layers"
+         >          
+     </div>
+
+
+        <!-- <div class="map"
+        leaflet
+        [leafletOptions]="options">
+        </div>  -->
+        <hr>
+        <div class="row">
+          
+          <div class="col-md-4">
+              <label for="exampleInputEmail1">{{  this.servicio.rutaSeleccionada.nombre }}</label>
+              <ngb-rating [(rate)]="currentRate"></ngb-rating>
+          </div>               
+          
+        </div>
+        <hr>
+        <div>         
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+            <ngb-panel title="Opiniones">
+              <ng-template ngbPanelContent>
+                <ul class="list-group">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+              </ng-template>
+            </ngb-panel>   
+            
+            <ngb-panel title="Danos tu opinion">
+                <ng-template ngbPanelContent>
+                    <form #formOpinion="ngForm" (ngSubmit) ="guardarOpinion(formOpinion)">
+                      <div class="form-group">
+
+                          <input  type="text" class="form-control" name="opinion" id="opinion" #opinion="ngModel"
+                          [(ngModel)]="opinion.opinion"
+                          placeholder="Mi experiencia en esta ruta fue...">                        
+                       
+                        </div>
+
+                        <div class="form-group">
+                            <label for="this.servicio.opinion.opinion">Calificala</label>
+                            <br>
+                            <ngb-rating [(rate)]="currentRate" class="form-control" name="calificacion" id="calificacion" #calificacion="ngModel"
+                            [(ngModel)]="opinion.calificacion"></ngb-rating>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="hidden" readonly class="form-control" value="{{ servicio.rutaSeleccionada.id }}" name="idruta" id="idruta" #idruta="ngModel"
+                            [(ngModel)]=" servicio.rutaSeleccionada.id ">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Guardar</button>
+                  </form>
+                 
+                </ng-template>
+              </ngb-panel>   
+          </ngb-accordion>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Cerrar</button>
+      </div>
+    </ng-template>

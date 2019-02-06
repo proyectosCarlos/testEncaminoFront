@@ -1,0 +1,58 @@
+.navHome{
+    background-color: #F7B538;
+    height: 50px;
+    }
+    
+    .navHome2{
+        height: 120px;
+        box-shadow: 0 2px 5px rgb(105, 105, 105); 
+    }
+    
+    .cardLogo{    
+        /* height: 200px;
+        width: 190; */
+        height: 200px;
+        position: absolute;      
+        top: 0px;
+        z-index: 1;
+        box-shadow: 0 2px 5px rgb(105, 105, 105);
+    
+    }
+    
+    .imagenlogo{      
+        display:block;
+        margin:auto;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .iconColor{
+        color: white;
+    }
+    
+    .info{
+        color: white;
+    }
+    
+    .imageDiv{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .carouselDiv{
+        height: 300px;
+    }
+    
+    .carouselImag{
+        height: 300px;
+    }
+
+    .bodyinfo{
+        background-color: #F7B538;  
+    }
+
+    .textoBienvenida{
+        color: white;
+    }
+
+    
